@@ -15,3 +15,4 @@ tests/_evaluator_edge_temp/
 .DS_Store
 Thumbs.db
 desktop.ini
+compile-log.txt
