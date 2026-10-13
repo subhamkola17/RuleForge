@@ -1,0 +1,39 @@
+﻿name: RuleForge Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: mingw-w64-ucrt-x86_64-gcc
+
+      - name: Compile RuleForge
+        shell: msys2 {0}
+        run: g++ -std=c++20 -Wall -Wextra -Wpedantic src/main.cpp -o ruleforge.exe
+
+      - name: Run evaluator edge-case tests
+        shell: pwsh
+        run: ./tests/test_evaluator_edges.ps1
+
+      - name: Run example tests
+        shell: pwsh
+        run: ./tests/test_examples.ps1
+
+      - name: Run JSON regression tests
+        shell: pwsh
+        run: ./tests/test_json_reports.ps1
