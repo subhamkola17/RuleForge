@@ -1,0 +1,5 @@
+RULE scholarship_eligible
+WHEN marks >= 80 AND attendance >= 75
+THEN result = "Eligible"
+ELSE result = "Not eligible"
+END

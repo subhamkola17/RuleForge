@@ -1,0 +1,17 @@
+﻿# Compiled C++ files
+ruleforge.exe
+*.o
+*.obj
+*.exe
+
+# IDE settings
+.vscode/
+.idea/
+
+# Temporary test files
+tests/_evaluator_edge_temp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

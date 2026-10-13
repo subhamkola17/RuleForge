@@ -1,0 +1,5 @@
+RULE discount_eligibility
+WHEN purchase_amount >= 1000
+THEN discount = 10
+ELSE discount = 0
+END

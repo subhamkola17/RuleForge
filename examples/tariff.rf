@@ -1,0 +1,5 @@
+RULE electricity_tariff
+WHEN units >= 500 AND (customer_type == "commercial" OR peak_units >= 100) AND payment_status == "late"
+THEN tariff = "HIGH_TARIFF"
+ELSE tariff = "STANDARD_TARIFF"
+END

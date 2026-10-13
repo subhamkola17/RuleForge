@@ -1,0 +1,5 @@
+RULE driving_eligibility
+WHEN age >= 18
+THEN result = "Eligible"
+ELSE result = "Not eligible"
+END
